@@ -1,0 +1,42 @@
+ToothGrowth Analysis
+========================================================
+author: Richard Gong
+date: Janunary 18th, 2015
+
+Exploratory Analysis
+========================================================
+
+```{r echo=FALSE}
+library(ggplot2)
+qplot(supp, len, data=ToothGrowth, main="Different Supplements", xlab="Supplement", ylab="Tooth Length", geom="boxplot", colour=I("blue")) + facet_wrap( ~ dose) + theme_bw(base_size = 10, base_family = "Helvetica")
+```
+***
+- For doses of .5 and 1.0 mg, there seems to be a relatively large difference between the supplements.
+- For doses of 2.0 mg, however, there doesn’t seem to be much difference between the supplements.
+
+
+Exploratory Analysis
+========================================================
+
+```{r echo=FALSE}
+library(ggplot2)
+qplot(as.factor(dose), len, data=ToothGrowth, main="Different Doses", xlab="Dose", ylab="Tooth Length", geom="boxplot", colour=I("blue")) + facet_wrap( ~ supp) + theme_bw(base_size = 10, base_family = "Helvetica")
+```
+***
+- For Vitamin C supplement, there seems to be large difference between the doses.
+- For Orange Juice supplement, dose 1.0 and 2.0 seems to be close.
+
+Confidence Intervals And Hypothesis Tests
+========================================================
+
+- Compare the two groups of supplyments with dose 0.5, 1.0, and 2.0, respectively.
+  * Only with dose 2.0, p-value > 0.05 and confident interval contains 0.
+- Compare the three doses each others in different group of supplyments.
+  * No supplement and dose pair in the test derive p-value > 0.05 and confident interval contains 0.
+
+Conclution
+========================================================
+
+- With dose 0.5 and 1.0, the two supplement types do not have same effect to the tooth growth. 
+- With more dose, 2.0, the two supp types have same effect to the tooth growth.
+- With supplement type Vitamic C, all doses have different effect.
